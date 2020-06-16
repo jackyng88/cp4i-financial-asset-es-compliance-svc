@@ -6,6 +6,9 @@ import com.ibm.garage.cpat.cp4i.FinancialMessage.FinancialMessage;
 
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
+import io.reactivex.Flowable;
+import java.util.concurrent.TimeUnit;
+
 @ApplicationScoped
 public class MockProducer {
 
@@ -13,9 +16,12 @@ public class MockProducer {
                                                          "10/21/2019", 12, 1822.38, 21868.55, 94, 7,
                                                          true, false, false, false, false);
 
-    // @Outgoing("compliance-mock-message")
-    // public Flowable<FinancialMessage> produceMock() {
-    //     return Flowable.just(mock);
-    // }
+    @Outgoing("compliance-mock-message")
+    public Flowable<FinancialMessage> produceMock() {
+        return Flowable.interval(5, TimeUnit.SECONDS)
+                       .map(tick -> {
+                            return mock;
+                        });
+    }
     
 }

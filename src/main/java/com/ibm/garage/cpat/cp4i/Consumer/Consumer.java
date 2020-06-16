@@ -40,23 +40,12 @@ public class Consumer {
             */
             receivedMessage.compliance_services = false;
             receivedMessage.technical_validation = true;
+
+            return Flowable.just(receivedMessage);
         }
-        return Flowable.just(receivedMessage);
+
+        else {
+            return Flowable.just(financialMessage);
+        }
     }
-
-    // @Incoming("pre-compliance-check")
-    // public void consumeMessage(FinancialMessage incoming) {
-    //     LOGGER.info("Message received from topic = {}", incoming);
-    // }
-
-    // public boolean isCompliant(FinancialMessage financialMessage) {
-
-    //     boolean compliance = false;
-        
-    //     if (financialMessage.exchange_id == "") {
-
-    //     }
-    //     return compliance;
-    // }
-
 }
