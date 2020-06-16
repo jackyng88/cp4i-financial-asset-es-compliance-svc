@@ -31,7 +31,7 @@ public class Consumer {
 
         LOGGER.info("Message received from topic = {}", receivedMessage);
 
-        if (receivedMessage.compliance_services && !receivedMessage.technical_validation) {
+        if (receivedMessage.compliance_services) {
             /*
             Check whether compliance_services is true and technical_validation is false. If so
             we flip the boolean values to indicate that the next microservice (technical_validation)
@@ -39,13 +39,20 @@ public class Consumer {
             a value of true means that it's ready to be processed.
             */
             receivedMessage.compliance_services = false;
-            receivedMessage.technical_validation = true;
-
+        
             return Flowable.just(receivedMessage);
         }
 
         else {
-            return Flowable.just(financialMessage);
+            return Flowable.empty();
         }
+
+        // return (receivedMessage.compliance_services) ? Flowable.just(complianceCheckComplete(receivedMessage)) : Flowable.empty();
     }
+
+    // public FinancialMessage complianceCheckComplete (FinancialMessage complianceMessage) {
+    //     FinancialMessage checkedMessage = complianceMessage;
+    //     checkedMessage.compliance_services = false;
+    //     return checkedMessage;
+    // }
 }
