@@ -1,4 +1,4 @@
-package com.ibm.garage.cpat.cp4i.Consumer;
+package com.ibm.garage.cpat.cp4i.ComplianceService;
 
 import com.ibm.garage.cpat.cp4i.FinancialMessage.FinancialMessage;
 
@@ -16,9 +16,9 @@ import javax.json.JsonObject;
 
 
 @ApplicationScoped
-public class Consumer {
+public class ComplianceService {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(Consumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ComplianceService.class);
 
     // @Incoming annotation denotes the incoming channel that we'll be reading from.
     // The @Outgoing denotes the outgoing channel that we'll be sending to.
