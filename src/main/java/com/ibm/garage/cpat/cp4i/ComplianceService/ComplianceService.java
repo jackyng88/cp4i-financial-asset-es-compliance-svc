@@ -12,7 +12,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
-import javax.json.JsonObject;
+
 
 
 @ApplicationScoped
@@ -31,7 +31,7 @@ public class ComplianceService {
 
         LOGGER.info("Message received from topic = {}", receivedMessage);
 
-        if (receivedMessage.compliance_services) {
+        if (receivedMessage.compliance_services && !receivedMessage.technical_validation) {
             /*
             Check whether compliance_services is true and technical_validation is false. If so
             we flip the boolean values to indicate that the next microservice (technical_validation)
@@ -39,6 +39,7 @@ public class ComplianceService {
             a value of true means that it's ready to be processed.
             */
             receivedMessage.compliance_services = false;
+            receivedMessage.technical_validation = true;
         
             return Flowable.just(receivedMessage);
         }
