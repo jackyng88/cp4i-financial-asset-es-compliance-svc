@@ -13,6 +13,7 @@ Run the following command and replace the items in <> with your values prior to 
 export BOOTSTRAP_SERVERS=<your-bootstrap-server> \ 
 export API_KEY=<your-api-key> \
 export CERT_LOCATION=<path-to-truststorefile/es-cert.jks>
+```
 
 
 ## Running the application in dev mode
