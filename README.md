@@ -5,6 +5,11 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 
+## What this microservice does
+
+Currently this microservice acts as the first of the microservices. It contains a mock producer that creates a mock Java "FinancialMessage" POJO with the compliance_service boolean set to true initially. It will then send that mocked message to the Kafka topic. The service will then pull from the topic, change it's compliance_service boolean to false and the trade_validation flag to true to signal that to the next microservice for consumption.
+
+
 ## Setting the environment variables prior to use
 
 Run the following command and replace the items in <> with your values prior to running the application. Note that the CERT_LOCATION environment variable is only necessary if you need to connect to an Event Streams instance on Cloud Pak for Integration for example.
