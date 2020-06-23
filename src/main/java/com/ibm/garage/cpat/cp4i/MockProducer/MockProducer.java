@@ -18,7 +18,7 @@ public class MockProducer {
 
     private FinancialMessage mock = new FinancialMessage(random.nextInt(100), "MET", "SWISS", "bonds", "10/20/2019",
                                                          "10/21/2019", 12, 1822.38, 21868.55, 94, 7,
-                                                         false, false, false, false, false);
+                                                         true, false, false, false, false);
 
     @Outgoing("compliance-mock-message")
     public Flowable<FinancialMessage> produceMock() {
