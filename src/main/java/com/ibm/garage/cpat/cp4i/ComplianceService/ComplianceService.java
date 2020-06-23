@@ -3,6 +3,7 @@ package com.ibm.garage.cpat.cp4i.ComplianceService;
 import com.ibm.garage.cpat.cp4i.FinancialMessage.FinancialMessage;
 
 import io.reactivex.Flowable;
+import io.vertx.core.json.JsonObject;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 
 import org.slf4j.Logger;
