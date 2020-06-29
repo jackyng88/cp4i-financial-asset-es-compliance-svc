@@ -1,0 +1,14 @@
+kind: LocalConfig
+apiversion: odo.dev/v1alpha1
+ComponentSettings:
+  Type: java
+  SourceLocation: ./
+  SourceType: local
+  Ports:
+  - "8080"
+  Application: app
+  Project: cp4i-finanical-asset-compliance-svc
+  Name: es-quarkus-compliance
+  Url:
+  - Name: es-quarkus-compliance-8080
+    Port: 8080
