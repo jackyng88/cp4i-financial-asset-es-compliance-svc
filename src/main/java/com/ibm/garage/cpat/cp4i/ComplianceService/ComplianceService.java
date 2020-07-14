@@ -41,6 +41,10 @@ public class ComplianceService {
             */
             receivedMessage.compliance_services = false;
             //receivedMessage.technical_validation = true;
+
+            if (!receivedMessage.technical_validation) {
+                receivedMessage.technical_validation = true;
+            }
         
             return Flowable.just(receivedMessage);
         }
