@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
+import org.eclipse.microprofile.reactive.messaging.Acknowledgment;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 
@@ -25,6 +26,7 @@ public class ComplianceService {
     // The @Outgoing denotes the outgoing channel that we'll be sending to.
     @Incoming("pre-compliance-check")
     @Outgoing("post-compliance-check")
+    @Acknowledgment(Acknowledgment.Strategy.NONE)
     @Broadcast
     public Flowable<FinancialMessage> processCompliance(FinancialMessage financialMessage) {
 

@@ -24,6 +24,10 @@ public class FinancialMessage {
 
     }
 
+    // public FinancialMessage(String random) {
+
+    // }
+
     public FinancialMessage(String user_id, String stock_symbol, String exchange_id, String trade_type, 
                             String date_created, String date_submitted, int quantity, double stock_price,
                             double total_cost, int institution_id, int country_id, 
